@@ -19,7 +19,7 @@ module Gmaps4rails
 
       def acts_as_gmappable args = {}    
         
-        validate :process_geocoding
+        before :valid?, :process_geocoding
         
         #instance method containing all the options to configure the behaviour of the gem regarding the current Model
         define_method "gmaps4rails_options" do
